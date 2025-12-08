@@ -1,0 +1,32 @@
+
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  test-ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run circle tests-ubuntu
+        run: python -m unittest circle.py
+
+      # Runs a set of commands using the runners shell
+      - name: Run sqare tests-ubuntu
+        run: python -m unittest square.py
+  test-win:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run circle tests-win
+        run: python -m unittest circle.py
+
+      # Runs a set of commands using the runners shell
+      - name: Run sqare tests-win
+        run: python -m unittest square.py
