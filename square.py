@@ -3,11 +3,15 @@ import unittest
 def area(a):
     if(not(isinstance(a, int) or isinstance(a, float))):
         return False
+    if(a < 0):
+        return False
     return a * a
 
 
 def perimeter(a):
     if(not(isinstance(a, int) or isinstance(a, float))):
+        return False
+    if(a < 0):
         return False
     return 4 * a
 
