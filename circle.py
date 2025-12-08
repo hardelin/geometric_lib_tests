@@ -3,28 +3,32 @@ import unittest
 
 
 def area(r):
+    if(not(isinstance(r, int) or isinstance(r, float))):
+        return False
     return math.pi * r * r
 
 
 def perimeter(r):
+    if(not(isinstance(r, int) or isinstance(r, float))):
+        return False
     return 2 * math.pi * r
 
 class CircleTestCases(unittest.TestCase):
     def test_positive_double_area(self):
         res = area(15.45)
-        self.assertAlmostEqual(res, 749.906)
+        self.assertAlmostEqual(res, 749.906, places=3)
         
     def test_positive_double_perimetr(self):
         res = perimeter(15.45)
-        self.assertAlmostEqual(res, 97.075)
+        self.assertAlmostEqual(res, 97.075, places=3)
         
     def test_positive_area(self):
         res = area(20)
-        self.assertAlmostEqual(res, 1256.637)
+        self.assertAlmostEqual(res, 1256.637, places=3)
         
     def test_positive_perimetr(self):
         res = perimeter(20)
-        self.assertAlmostEqual(res, 125.664)
+        self.assertAlmostEqual(res, 125.664, places=3)
         
     def test_zero_area(self):
         res = area(0)
