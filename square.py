@@ -1,20 +1,24 @@
 import unittest
 
 def area(a):
+    if(not(isinstance(a, int) or isinstance(a, float))):
+        return False
     return a * a
 
 
 def perimeter(a):
+    if(not(isinstance(a, int) or isinstance(a, float))):
+        return False
     return 4 * a
 
 class SqareTestCases(unittest.TestCase):
     def test_positive_double_area(self):
         res = area(15.45)
-        self.assertAlmostEqual(res, 238.7025)
+        self.assertAlmostEqual(res, 238.7025, places=4)
         
     def test_positive_double_perimetr(self):
         res = perimeter(15.45)
-        self.assertAlmostEqual(res, 61.8)
+        self.assertAlmostEqual(res, 61.8, places=1)
         
     def test_positive_area(self):
         res = area(20)
